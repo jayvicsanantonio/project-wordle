@@ -21,7 +21,7 @@ function Game() {
 
   return (
     <div>
-      <GuessResults guesses={guesses} />
+      <GuessResults guesses={guesses} answer={answer} />
       <GuessInput onGuessSubmit={handleGuessSubmit} />
     </div>
   );

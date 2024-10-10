@@ -1,12 +1,14 @@
 import { useState } from "react";
 
-function GuessInput({ onGuessSubmit }) {
+function GuessInput({ onGuessSubmit, isGameOver }) {
   const [guess, setGuess] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(guess);
-    onGuessSubmit(guess);
-    setGuess("");
+
+    if (guess.length === 5) {
+      onGuessSubmit(guess);
+      setGuess("");
+    }
   };
 
   return (
@@ -17,8 +19,9 @@ function GuessInput({ onGuessSubmit }) {
         id="guess-input"
         name="guess-input"
         value={guess}
-        pattern=".{5,}"
+        pattern=".{5}"
         maxLength="5"
+        disabled={isGameOver}
         onChange={(e) => setGuess(e.target.value.toUpperCase())}
       />
     </form>

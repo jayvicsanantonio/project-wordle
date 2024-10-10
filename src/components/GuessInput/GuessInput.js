@@ -5,22 +5,23 @@ function GuessInput({ onGuessSubmit, isGameOver }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (guess.length === 5) {
-      onGuessSubmit(guess);
-      setGuess("");
-    }
+    onGuessSubmit(guess);
+    setGuess("");
   };
 
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
+        required
         type="text"
         id="guess-input"
         name="guess-input"
         value={guess}
-        pattern=".{5}"
+        pattern="[a-zA-Z]{5}"
+        minLength="5"
         maxLength="5"
+        title="5 letter word"
         disabled={isGameOver}
         onChange={(e) => setGuess(e.target.value.toUpperCase())}
       />

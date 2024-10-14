@@ -41,6 +41,12 @@ button {
   color: inherit;
 }
 
+.game-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--game-spacing);
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -207,6 +213,43 @@ h1 {
 
 .sad.restart-game-btn {
   color: var(--color-error);
+}
+
+.keyboard {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.keyboard-key {
+  background: var(--color-gray-700);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+.keyboard-key.correct {
+  background: var(--color-success);
+  color: white;
+}
+
+.keyboard-key.incorrect {
+  background: var(--color-gray-300);
+  color: white;
+}
+
+.keyboard-key.misplaced {
+  background: var(--color-warning);
+  color: white;
 }
 
 .visually-hidden {
